@@ -109,7 +109,7 @@ public class SinglyLinkedList {
 				temp = trav;
 				trav = trav.next;
 			}
-			temp.next = trav.next;
+			temp.next = null;
 		}
 	}
 
