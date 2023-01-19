@@ -1,6 +1,5 @@
 package Day3;
 
-import Day3.SinglyLinkedList.Node;
 
 public class SinglyCircularLinkedList {
 	static class Node {
