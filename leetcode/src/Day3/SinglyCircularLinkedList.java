@@ -1,5 +1,6 @@
 package Day3;
 
+import Day3.SinglyLinkedList.Node;
 
 public class SinglyCircularLinkedList {
 	static class Node {
@@ -109,7 +110,29 @@ public class SinglyCircularLinkedList {
 			temp.next = trav.next;
 		}
 	}
+	
+	public void delAll() {
+		head.next=null;
+		head=null;
+	}
+	
+	public void delLast() {
+		if (head == null) {
+			throw new RuntimeException("Empty list");
+		} else if (head.next == head) {
+			head = null;
+		} else {
+			Node trav = this.head;
+			Node temp = null;
 
+			while (trav.next != head) {
+				temp = trav;
+				trav = trav.next;
+			}
+			trav.next=null;
+			temp.next = head;
+		}
+	}
 
 	public static void main(String[] args) {
 		SinglyCircularLinkedList list = new SinglyCircularLinkedList();
@@ -120,6 +143,7 @@ public class SinglyCircularLinkedList {
 		list.addFirst(3);
 //		list.delFirst();
 //		list.delAtPos(3);
+//		list.delLast();
 		list.display();
 	}
 }
