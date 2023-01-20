@@ -139,6 +139,22 @@ public class SinglyLinkedList {
 		return list;
 	}
 
+	public Node recursiveReverse(Node h) {
+		if (h.next == null) {
+			head = h;
+			return h;
+		} else {
+			Node t = recursiveReverse(h.next);
+			t.next = h;
+			h.next = null;
+			return h;
+		}
+	}
+
+	public void recursiveReverse() {
+		recursiveReverse(head);
+	}
+
 	public static void main(String[] args) {
 		SinglyLinkedList list = new SinglyLinkedList();
 		list.addFirst(11);
@@ -150,7 +166,8 @@ public class SinglyLinkedList {
 //		list.delAtPos(4);
 //		list.delLast();
 //		list = list.sort(list);
-		list.reverse(list);
+//		list.reverse(list);
+//		list.recursiveReverse();
 		list.display();
 
 	}
