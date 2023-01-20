@@ -126,6 +126,19 @@ public class SinglyLinkedList {
 		return list;
 	}
 
+	public SinglyLinkedList reverse(SinglyLinkedList list) {
+		Node oldHead = head;
+		head = null;
+		Node temp = null;
+		while (oldHead != null) {
+			temp = oldHead;
+			oldHead = oldHead.next;
+			temp.next = head;
+			head = temp;
+		}
+		return list;
+	}
+
 	public static void main(String[] args) {
 		SinglyLinkedList list = new SinglyLinkedList();
 		list.addFirst(11);
@@ -136,7 +149,8 @@ public class SinglyLinkedList {
 //		list.delAll();
 //		list.delAtPos(4);
 //		list.delLast();
-		list = list.sort(list);
+//		list = list.sort(list);
+		list.reverse(list);
 		list.display();
 
 	}
