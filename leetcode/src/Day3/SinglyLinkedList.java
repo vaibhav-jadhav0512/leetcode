@@ -113,6 +113,19 @@ public class SinglyLinkedList {
 		}
 	}
 
+	public SinglyLinkedList sort(SinglyLinkedList list) {
+		for (Node i = head; i.next != null; i = i.next) {
+			for (Node j = i.next; j != null; j = j.next) {
+				if (i.data > j.data) {
+					int temp = i.data;
+					i.data = j.data;
+					j.data = temp;
+				}
+			}
+		}
+		return list;
+	}
+
 	public static void main(String[] args) {
 		SinglyLinkedList list = new SinglyLinkedList();
 		list.addFirst(11);
@@ -122,7 +135,8 @@ public class SinglyLinkedList {
 //		list.delFirst();
 //		list.delAll();
 //		list.delAtPos(4);
-		list.delLast();
+//		list.delLast();
+		list = list.sort(list);
 		list.display();
 
 	}
