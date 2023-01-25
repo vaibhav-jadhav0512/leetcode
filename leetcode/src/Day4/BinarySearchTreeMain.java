@@ -1,5 +1,7 @@
 package Day4;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 class BinarySearchTree {
@@ -140,6 +142,21 @@ class BinarySearchTree {
 	public int getHeight() {
 		return height(root);
 	}
+
+	public Node bfs(int key) {
+		Queue<Node> q = new LinkedList<>();
+		q.offer(root);
+		while (!q.isEmpty()) {
+			Node trav = q.poll();
+			if (key == trav.data)
+				return trav;
+			if (trav.left != null)
+				q.offer(trav.left);
+			if (trav.right != null)
+				q.offer(trav.right);
+		}
+		return null;
+	}
 }
 
 public class BinarySearchTreeMain {
@@ -161,6 +178,7 @@ public class BinarySearchTreeMain {
 		tree.add(10);
 //		tree.deleteAlls();
 		tree.display();
+		System.out.println(tree.bfs(30));
 //		System.out.println(tree.getHeight());
 	}
 }
