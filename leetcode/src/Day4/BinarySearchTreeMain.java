@@ -157,6 +157,21 @@ class BinarySearchTree {
 		}
 		return null;
 	}
+
+	public Node dfs(int key) {
+		Stack<Node> q = new Stack<>();
+		q.push(root);
+		while (!q.isEmpty()) {
+			Node trav = q.pop();
+			if (key == trav.data)
+				return trav;
+			if (trav.right != null)
+				q.push(trav.right);
+			if (trav.left != null)
+				q.push(trav.left);
+		}
+		return null;
+	}
 }
 
 public class BinarySearchTreeMain {
@@ -167,14 +182,6 @@ public class BinarySearchTreeMain {
 		tree.add(10);
 		tree.add(90);
 		tree.add(100);
-		tree.add(40);
-		tree.add(70);
-		tree.add(80);
-		tree.add(90);
-		tree.add(50);
-		tree.add(20);
-		tree.add(10);
-		tree.add(10);
 		tree.add(10);
 //		tree.deleteAlls();
 		tree.display();
