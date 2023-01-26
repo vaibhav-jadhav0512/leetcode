@@ -172,6 +172,55 @@ class BinarySearchTree {
 		}
 		return null;
 	}
+
+	public Node binarySearch(int key) {
+		Node trav = root;
+		while (trav != null) {
+			if (key == trav.data)
+				return trav;
+			if (key < trav.data)
+				trav = trav.left;
+			if (key > trav.data)
+				trav = trav.right;
+		}
+		return null;
+	}
+
+	public void delete(int val) {
+		Node trav, parent;
+
+//		Node[] arr = binarySearchWithParent(val);
+		Node[] arr = null;
+		trav = arr[0];
+		parent = arr[1];
+		if (trav == null)
+			throw new RuntimeException("Node not found");
+		if (trav.left != null && trav.right != null) {
+			parent = trav;
+			Node succ = trav.right;
+			while (succ.left != null) {
+				parent = succ;
+				succ = succ.left;
+			}
+			trav.data = succ.data;
+			trav = succ;
+		}
+		if (trav.left == null) {
+			if (trav == root)
+				root = trav.right;
+			else if (trav == parent.left)
+				parent.left = trav.right;
+			else
+				parent.right = trav.right;
+		} else if (trav.right == null) {
+			if (trav == root)
+				root = trav.left;
+			else if (trav == parent.left)
+				parent.left = trav.left;
+			else
+				parent.right = trav.left;
+		}
+	}
 }
 
 public class BinarySearchTreeMain {
