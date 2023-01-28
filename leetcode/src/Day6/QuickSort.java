@@ -17,7 +17,7 @@ public class QuickSort {
 		int i = 0, j = right;
 		while (i < j) {
 			// 1.from left (i-index) find element greater than pivot
-			while (arr[i] <= arr[left])
+			while (i <= right && arr[i] <= arr[left])
 				i++;
 			// 2.from right (j-index) find element less than or equal to pivot
 			while (arr[j] > arr[left])
@@ -36,7 +36,7 @@ public class QuickSort {
 	}
 
 	public static void main(String[] args) {
-		int arr[] = { 2, 4, 3, 6, 1, 8, 5, 9 };
+		int arr[] = { 4, 3, 2, 1 };
 		System.out.println(Arrays.toString(arr));
 		quickSort(arr, 0, arr.length - 1);
 		System.out.println(Arrays.toString(arr));
