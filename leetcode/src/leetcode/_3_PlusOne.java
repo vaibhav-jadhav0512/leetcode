@@ -1,6 +1,28 @@
 package leetcode;
 
+import java.util.Arrays;
+
 public class _3_PlusOne {
+	public static void main(String args[]) {
+		int[] arr = new int[] { 9, 9, 9 };
+		System.out.println(Arrays.toString(plusOne(arr)));
+	}
+
+	public static int[] plusOne(int[] arr) {
+		int[] arr1 = new int[arr.length + 1];
+		for (int i = arr.length - 1; i >= 0; i--) {
+			if (arr[i] != 9) {
+				arr[i]++;
+				break;
+			} else
+				arr[i] = 0;
+		}
+		if (arr[0] == 0) {
+			arr1[0] = 1;
+			return arr1;
+		}
+		return arr;
+	}
 
 }
 //	You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
